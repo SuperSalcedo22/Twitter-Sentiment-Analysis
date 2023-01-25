@@ -114,3 +114,22 @@ df['Day'] = df['Datetime'].dt.day_name()
 
 # dropping the datetime column
 df = df.drop(columns=['Datetime'])
+
+'''
+Data visualisation
+'''
+
+# plotting the distribution of the sentiment data 
+sns.histplot(data=df,x='Sentiment',binwidth=0.1,kde=True)
+
+# plotting the distribution of the sentiment based on the day of the week
+sns.barplot(data=df,x='Day',y='Sentiment')
+
+# plotting the distribution of the sentiment based on the day of the week
+sns.barplot(data=df,x='Hour',y='Sentiment')
+
+# plotting the number of likes per tweet against the sentiment
+sns.scatterplot(data=df, x='Likes', y='Sentiment')
+
+# plotting the number of retweets against the sentiment
+sns.scatterplot(data=df, x='Retweets', y='Sentiment')
